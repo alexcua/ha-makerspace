@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "id": "c7db8243d39042aca86fa0bf3f89f636",
+        "url": "/hacsfiles/advanced-camera-card/advanced-camera-card.js?hacstag=3940825527274",
+        "type": "module"
+      },
+      {
+        "id": "29f81c64217f4893bd7fe9c27b867da6",
+        "url": "/hacsfiles/printwatch-card/printwatch-card.js?hacstag=923648410120",
+        "type": "module"
+      },
+      {
+        "id": "4405ef5398264d1399ade86dfab0bb69",
+        "url": "/hacsfiles/lovelace-mushroom/mushroom.js?hacstag=444350375511",
+        "type": "module"
+      },
+      {
+        "id": "5862e4c8f2da46a79a15245c2e642a8a",
+        "url": "/hacsfiles/lovelace-card-mod/card-mod.js?hacstag=190927524421",
+        "type": "module"
+      }
+    ]
+  }
+}
