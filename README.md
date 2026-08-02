@@ -1,55 +1,68 @@
 # ha-makerspace
 
-Home Assistant configuration snapshot for the **Makerspace** instance.
+Home Assistant configuration snapshot for the **Makerspace** instance.  
+Managed by Home Assistant Version Control — direct edits may be overwritten.
 
-This repository is managed by the Home Assistant Version Control add-on. Direct edits may be overwritten by a later synchronization from Home Assistant.
+## Instance status
 
-## What this repository contains
+| Item | Value | Status |
+|---|---|---|
+| Hardware | Beelink EQ14 (Intel N100, 16 GB RAM) | ✅ Running |
+| OS | Home Assistant OS (HAOS) | ✅ Running |
+| Data disk | NVMe only | ⚠️ Seagate Skyhawk 4TB pending |
+| HA URL | http://192.168.1.12:8123 | ✅ (verify at router) |
 
-- YAML configuration files (`configuration.yaml`, automations, scripts, scenes)
-- Lovelace dashboard definitions
-- Add-on configurations (where included by Version Control)
+## Add-ons
 
-## What this repository does NOT contain
-
-- `secrets.yaml` or any credentials
-- Database files
-- Log files
-- Backups
-- Private keys or certificates
-
-## Instance summary
-
-| Item | Value |
+| Add-on | Status |
 |---|---|
-| Hardware | Beelink EQ14 (Intel N100, 16 GB RAM) |
-| OS | Home Assistant OS (HAOS) |
-| Frigate | 0.17.1 (Full Access add-on) |
-| Coral TPU | Google Coral USB — pending drive migration |
-| Storage | NVMe only — Seagate Skyhawk 4TB pending |
-| HA URL | http://192.168.1.12:8123 (verify at router) |
+| Frigate (Full Access) 0.17.1 | ✅ Running |
+| Mosquitto MQTT broker | ✅ Running |
+| HACS | ✅ Running |
+| Home Assistant Version Control | ✅ Auto-pushing |
 
-## Cameras in Frigate
+## Custom components
 
-| Name | Model | IP | Notes |
+| Component | Purpose |
+|---|---|
+| frigate | Frigate NVR HA integration |
+| bambu_lab | Bambu Lab 3D printer |
+| browser_mod | Browser customization |
+
+## Cameras (Frigate)
+
+| Name | Model | IP | Detect resolution | Status |
+|---|---|---|---|---|
+| doorbell | Reolink D340P | 192.168.1.84 | 480×640 portrait | ✅ Live |
+| main_hall | Reolink Duo 2 | 192.168.1.120 | 1280×388 (3.3:1) | ✅ Live |
+| robotics | Reolink Duo 2 | 192.168.1.21 | 1280×388 (3.3:1) | ✅ Live |
+| craft_room | Reolink Duo 2 | 192.168.1.22 | 1280×388 (3.3:1) | ✅ Live |
+| TBD (5th) | TBD | TBD | TBD | ⏳ Not installed |
+
+## Detectors
+
+| Detector | Type | Inference | Status |
 |---|---|---|---|
-| doorbell | Reolink D340P | 192.168.1.84 | 480×640 portrait detect |
-| main_hall | Reolink Duo 2 | 192.168.1.120 | 1280×388 detect (3.3:1) |
-| robotics | Reolink Duo 2 | 192.168.1.21 | 1280×388 detect (3.3:1) |
-| craft_room | Reolink Duo 2 | 192.168.1.22 | 1280×388 detect (3.3:1) |
+| cpu1 | CPU (4 threads) | ~64 ms | ⚠️ Temporary — awaiting Coral fix |
+| coral | Google Coral USB TPU | — | ⚠️ Stuck in bootloader — needs data-disk migration |
+| VAAPI | Intel iHD (N100 iGPU) | — | ✅ Active (~6–8% GPU) |
 
-5th camera pending installation.
+## Dashboards
+
+| Dashboard | Status |
+|---|---|
+| lovelace (default) | ✅ |
+| map | ✅ |
 
 ## Pending
 
-- Seagate Skyhawk 4TB — purchase and install for data disk migration
-- Coral TPU will work after data disk migration (same fix as Home instance)
-- 5th Reolink camera installation
+- Purchase Seagate Skyhawk 4TB → format ext4 → move data disk → Coral TPU will work
+- Add Frigate HA integration
+- Build Mushroom dashboard
+- Install 5th camera
 
 ## Related repositories
 
-- Shared documentation and setup procedures: [`ha-fleet-context`](https://github.com/alexcua/ha-fleet-context)
-- Home instance: `ha-home`
-- Office instance: `ha-office`
-
-For installation procedures, hardware details, Frigate config patterns, and known workarounds see `ha-fleet-context`.
+- [`ha-fleet-context`](https://github.com/alexcua/ha-fleet-context) — shared docs, setup procedures, workarounds
+- `ha-home` — Home instance
+- `ha-office` — Office instance
