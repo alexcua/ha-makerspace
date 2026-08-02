@@ -9,7 +9,7 @@ Managed by Home Assistant Version Control — direct edits may be overwritten.
 |---|---|---|
 | Hardware | Beelink EQ14 (Intel N100, 16 GB RAM) | ✅ Running |
 | OS | Home Assistant OS (HAOS) | ✅ Running |
-| Data disk | NVMe only | ⚠️ Seagate Skyhawk 4TB pending |
+| Data disk | Seagate Skyhawk 4TB (external HDD) | ✅ Migrated |
 | HA URL | http://192.168.1.12:8123 | ✅ (verify at router) |
 
 ## Add-ons
@@ -43,8 +43,7 @@ Managed by Home Assistant Version Control — direct edits may be overwritten.
 
 | Detector | Type | Inference | Status |
 |---|---|---|---|
-| cpu1 | CPU (4 threads) | ~64 ms | ⚠️ Temporary — awaiting Coral fix |
-| coral | Google Coral USB TPU | — | ⚠️ Stuck in bootloader — needs data-disk migration |
+| coral | Google Coral USB TPU | ~9.55 ms | ✅ Active |
 | VAAPI | Intel iHD (N100 iGPU) | — | ✅ Active (~6–8% GPU) |
 
 ## Dashboards
@@ -56,10 +55,10 @@ Managed by Home Assistant Version Control — direct edits may be overwritten.
 
 ## Pending
 
-- Purchase Seagate Skyhawk 4TB → format ext4 → move data disk → Coral TPU will work
 - Add Frigate HA integration
 - Build Mushroom dashboard
 - Install 5th camera
+- Resolve Frigate config tracking in Version Control
 
 ## Related repositories
 
